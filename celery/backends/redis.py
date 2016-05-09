@@ -123,6 +123,7 @@ class RedisBackend(KeyValueStoreBackend):
             # host+port are invalid options when using this connection type.
             connparams.pop('host', None)
             connparams.pop('port', None)
+            self._client_capabilities['socket_connect_timeout'] = False
         else:
             connparams['db'] = path
 
